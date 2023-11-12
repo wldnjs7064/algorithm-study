@@ -4,30 +4,28 @@ using namespace std;
 int a[101];
 int main()
 {
-	int num;
-	int max = 0;
 	int n;
 	cin >> n;
-	for (int j = 1; j <= n; j++)
+	int max = 0,res;
+	for (int i = 1; i <= n; i++)
 	{
-		cin >> j;
-		for (int i = 0; i <= 100; i++)
+		cin >> i;
+		for (int j = 0; j <= 100; j++)
 		{
-			a[i] = 0;
+			a[j] = 0;
 		}
-		for (int i = 0; i < 1000; i++)
+		for (int j = 0; j < 1000; j++)
 		{
-			cin >> num;
-			a[num]++;
+			int score;
+			cin >> score;
+			a[score]++;
 		}
-		int answer = 0;
-		for (int i = 0; i <= 100; i++)
+		for (int j = 0; j < 100; j++)
 		{
-			if (a[i] >= a[answer])
-			{
-				answer = i;
-			}
+			if (a[max] <= a[j])
+				max = j;
 		}
-		cout << "#" << j << " " << answer << "\n";
+		cout << "#" << i << " " << max << "\n";
+
 	}
 }
