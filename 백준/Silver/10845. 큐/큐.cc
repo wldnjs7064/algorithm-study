@@ -5,50 +5,52 @@ using namespace std;
 int main()
 {
 	int n;
-	string str;
+	cin >> n;
 	queue<int> q;
-	cin >>n;
 	for (int i = 0; i < n; i++)
 	{
+		string str;
 		cin >> str;
 		if (str == "push")
 		{
-			int num;
-			cin >> num;
-			q.push(num);
-		}
-		else if (str == "size")
-			cout << q.size() << "\n";
-		else if (str == "empty")
-		{
-			if (q.empty())
-				cout << "1" << "\n";
-			else
-				cout << "0" << "\n";
-		}
-		else if (str == "front")
-		{
-			if (q.empty())
-				cout << "-1" << "\n";
-			else
-				cout << q.front() << "\n";
+			int x;
+			cin >> x;
+			q.push(x);
 		}
 		else if (str == "pop")
 		{
 			if (q.empty())
-				cout << "-1" << "\n";
+				cout << "-1\n";
 			else
 			{
 				cout << q.front() << "\n";
 				q.pop();
 			}
 		}
-		else if (str == "back")
+		else if (str == "size")
 		{
-			if (q.empty())
-				cout << "-1" << "\n";
+			cout << q.size() << "\n";
+		}
+		else if (str == "empty")
+		{
+			if (!q.empty())
+				cout << "0\n";
 			else
+				cout << "1\n";
+		}
+		else if (str == "front")
+		{
+			if (!q.empty())
+				cout << q.front() << "\n";
+			else
+				cout << "-1\n";
+		}
+		else
+		{
+			if (!q.empty())
 				cout << q.back() << "\n";
+			else
+				cout << "-1\n";
 		}
 	}
 }
