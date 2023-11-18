@@ -4,69 +4,76 @@ using namespace std;
 
 int main()
 {
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	cout.tie(0);
 	int n;
 	cin >> n;
-	deque<int> dq;
-	for (int i = 0; i < n; i++)
+	deque<int> d;
+	for (int i = 1; i <= n; i++)
 	{
 		string str;
 		cin >> str;
 		if (str == "push_front")
 		{
-			int num;
-			cin >> num;
-			dq.push_front(num);
+			int x;
+			cin >> x;
+			d.push_front(x);
 		}
 		else if (str == "push_back")
 		{
-			int num;
-			cin >> num;
-			dq.push_back(num);
-		}
-		else if (str == "size")
-		{
-			cout << dq.size() << "\n";
-		}
-		else if (str == "empty")
-		{
-			if (dq.size() == 0)
-				cout << "1" << "\n";
-			else
-				cout << "0" << "\n";
-		}
-		else if (str == "front")
-		{
-			if (dq.size() == 0)
-				cout << "-1" << "\n";
-			else
-				cout << dq.front() << "\n";
-		}
-		else if (str == "back")
-		{
-			if (dq.size() == 0)
-				cout << "-1" << "\n";
-			else
-				cout << dq.back() << "\n";
+			int x;
+			cin >> x;
+			d.push_back(x);
 		}
 		else if (str == "pop_front")
 		{
-			if (dq.size() == 0)
-				cout << "-1" << "\n";
-			else
+			if (!d.empty())
 			{
-				cout << dq.front() << "\n";
-				dq.pop_front();
+				cout << d.front() << "\n";
+				d.pop_front();
 			}
+			else
+				cout << "-1\n";
 		}
 		else if (str == "pop_back")
 		{
-			if (dq.size() == 0)
-				cout << "-1" << "\n";
-			else
+			if (!d.empty())
 			{
-				cout << dq.back() << "\n";
-				dq.pop_back();
+				cout << d.back() << "\n";
+				d.pop_back();
 			}
+			else
+				cout << "-1\n";
+		}
+		else if (str == "size")
+		{
+			cout << d.size() << "\n";
+		}
+		else if (str == "empty")
+		{
+			if (!d.empty())
+				cout << "0\n";
+			else
+				cout << "1\n";
+		}
+		else if (str == "front")
+		{
+			if (!d.empty())
+			{
+				cout << d.front() << "\n";
+			}
+			else
+				cout << "-1\n";
+		}
+		else
+		{
+			if (!d.empty())
+			{
+				cout << d.back() << "\n";
+			}
+			else
+				cout << "-1\n";
 		}
 	}
 }
