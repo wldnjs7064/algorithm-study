@@ -4,22 +4,25 @@ using namespace std;
 
 int main()
 {
-	stack<int> st;
-	int n,num, sum = 0;
+	ios::sync_with_stdio(0);
+	cin.tie();
+	int n;
 	cin >> n;
+	stack<int> st;
 	for (int i = 0; i < n; i++)
 	{
-		cin >> num;
-		if (num == 0)
-			st.pop();
+		int x;
+		cin >> x;
+		if (x != 0)
+			st.push(x);
 		else
-			st.push(num);
+			st.pop();
 	}
-	for (int i = 0; !st.empty(); i++)
+	int sum = 0;
+	while (!st.empty())
 	{
 		sum += st.top();
 		st.pop();
 	}
 	cout << sum;
-	return 0;
 }
