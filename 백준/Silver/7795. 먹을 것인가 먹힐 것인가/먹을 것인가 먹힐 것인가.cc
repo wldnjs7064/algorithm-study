@@ -33,8 +33,7 @@ int main()
 		sort(va.begin(), va.end());
 		sort(vb.begin(), vb.end());
 		int cnt = 0;
-		if (va.size() > vb.size())
-		{
+		
 			for (int i = 0; i < va.size(); i++)
 			{
 				for (int j = 0; j < vb.size(); j++)
@@ -44,18 +43,8 @@ int main()
 					else break;
 				}
 			}
-		}
-		else
-		{
-			for (int i = 0; i < vb.size(); i++)
-			{
-				for (int j = 0; j < va.size(); j++)
-				{
-					if (va[j] > vb[i])
-						cnt++;
-				}
-			}
-		}
+		
+		
 		cout << cnt << "\n";
 	}
 }
