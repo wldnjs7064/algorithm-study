@@ -25,9 +25,9 @@ int main() {
 		}
 		else {
 			right++;
-			if (right < n) {
+			
 				total += v[right];
-			}
+			
 		}
 	}
 
