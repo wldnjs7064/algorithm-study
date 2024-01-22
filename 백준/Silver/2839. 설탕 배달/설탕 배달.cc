@@ -1,23 +1,21 @@
 #include <iostream>
 using namespace std;
+
 int main()
 {
-	int n, b;
+	int n;
 	cin >> n;
-	int a = n / 5;
-	while (1)
+	int cnt = 0;
+	while (n>=0)
 	{
-		if (a < 0)
+		if (n % 5 == 0)
 		{
-			cout << "-1";
+			cnt += (n / 5);
+			cout << cnt;
 			return 0;
 		}
-		if ((n - (5 * a)) % 3 == 0)
-		{
-			b = (n - (5 * a)) / 3;
-			break;
-		}
-		a--;
+		n -= 3;
+		cnt++;
 	}
-	cout << a + b;
+	cout << -1;
 }
