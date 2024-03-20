@@ -2,34 +2,35 @@
 #include <vector>
 using namespace std;
 
-int n, m, cnt = 0;
-bool visited[101];
-vector<int> adj[101];
+int n, m;
+vector<int> v[101];
+int visited[101];
+int cnt = 0;
 
 void dfs(int x)
 {
-	visited[x] = true;
-	for (int i = 0; i < adj[x].size(); i++)
+	visited[x] = 1;
+	for (int i = 0; i < v[x].size(); i++)
 	{
-		int y = adj[x][i];
+		int y = v[x][i];
 		if (!visited[y])
 		{
 			dfs(y);
 			cnt++;
 		}
+
 	}
 }
 int main()
 {
-	cin >> n;
-	cin >> m;
+	cin >> n >> m;
 	for (int i = 0; i < m; i++)
 	{
-		int x, y;
-		cin >> x >> y;
-		adj[x].push_back(y);
-		adj[y].push_back(x);
+		int f, s;
+		cin >> f >> s;
+		v[f].push_back(s);
+		v[s].push_back(f);
 	}
 	dfs(1);
-	cout << cnt << "\n";
+	cout << cnt;
 }
