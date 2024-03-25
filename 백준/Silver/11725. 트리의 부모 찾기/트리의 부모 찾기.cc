@@ -3,33 +3,38 @@
 using namespace std;
 
 int n;
-vector<int> vec[100001];
+vector<int> v[100001];
 int visited[100001];
-int ret[100001];
-void dfs(int a)
+int arr[100001];
+void dfs(int x)
 {
-	visited[a] = 1;
-	for (int i = 0; i < vec[a].size(); i++)
+	visited[x] = 1;
+	for (int i = 0; i < v[x].size(); i++)
 	{
-		if (visited[vec[a][i]] == 0)
+		int y = v[x][i];
+		if (!visited[y])
 		{
-			ret[vec[a][i]] = a;
-			dfs(vec[a][i]);
+			arr[y] = x;
+			dfs(y);
 		}
 	}
 }
-
 int main()
 {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
 	cin >> n;
 	for (int i = 0; i < n; i++)
 	{
-		int u, v;
-		cin >> u >> v;
-		vec[u].push_back(v);
-		vec[v].push_back(u);
+		int x, y;
+		cin >> x >> y;
+		v[x].push_back(y);
+		v[y].push_back(x);
 	}
 	dfs(1);
 	for (int i = 2; i <= n; i++)
-		cout << ret[i] << "\n";
+	{
+		cout << arr[i] << "\n";
+	}
 }
