@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <stack>
+#include <string>
 using namespace std;
 
 int main()
@@ -8,24 +8,23 @@ int main()
 	int n;
 	cin >> n;
 	int cnt = 0;
-	for (int i = 0; i < n; i++)
-	{
+	while (n--) {
 		string str;
 		cin >> str;
 		stack<char> st;
-		for (int j = 0; j < str.size(); j++)
-		{
-			if (st.empty())
-				st.push(str[j]);
-			else {
-				if (str[j] != st.top())
-					st.push(str[j]);
-				else
-					st.pop();
+		for (int i = 0; i < str.length(); i++) {
+			if (st.empty()) {
+				st.push(str[i]);
 			}
+			else {
+				if (str[i] == st.top()) {
+					st.pop();
+				}
+				else st.push(str[i]);
+			}
+			
 		}
-		if (st.empty())
-			cnt++;
+		if (st.size() == 0)cnt++;
 	}
 	cout << cnt;
 }
