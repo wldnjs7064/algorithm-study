@@ -1,32 +1,31 @@
 #include <iostream>
 #include <queue>
+#include <vector>
 using namespace std;
 
 int main()
 {
-	ios::sync_with_stdio(0);
-	cin.tie(0);
-	int n, k,tmp;
-	queue<int>q;
-	cin >> n >> k;
-	for (int i = 1; i <= n; i++)
-	{
+	queue<int> q;
+	vector<int> v;
+	int n,k;
+	cin >> n>>k;
+	for (int i = 1; i <= n; i++) {
 		q.push(i);
 	}
-	cout << "<";
-
-	while (q.size()>1)
-	{
-		for (int i = 0; i < k - 1; i++)
-		{
-			tmp = q.front();
-			q.push(tmp);
+	while (!q.empty()) {
+		for (int i = 0; i < k - 1; i++) {
+			q.push(q.front());
 			q.pop();
 		}
-		tmp = q.front();
-		cout << tmp << ", ";
+		v.push_back(q.front());
 		q.pop();
 	}
-	tmp = q.front();
-	cout << tmp << ">\n";
+	
+	cout << "<" << v[0];
+
+	for (int i = 1; i < v.size(); i++){
+		cout << ", " << v[i];
+	}
+	cout << ">";
+
 }
